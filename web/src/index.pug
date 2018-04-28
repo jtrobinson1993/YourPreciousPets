@@ -1,0 +1,33 @@
+<cms:template title='Homepage' />
+doctype html
+
+head
+  meta(name='robots' content='noindex')
+  title Home | Your Precious Pets
+  link(href='https://fonts.googleapis.com/css?family=Indie+Flower|Varela+Round' rel='stylesheet')
+
+body
+
+  a(href='#maincontent') Skip to main content
+  header#site-header
+
+    h1
+      <cms:editable name='site_heading' type='text'>Your Precious Pets</cms:editable>
+
+    button#main-menu-toggle
+      - for (var i = 0; i < 3; i++)
+        span.menu-bar(aria-hidden)
+      span.menu-toggle-text Open Main Menu
+
+    nav
+      ul
+        li
+          a(href='/new_site') Home
+        li
+          a(href='/new_site/grooming.php') Grooming
+        li
+          a(href='/new_site/boarding.php') Boarding
+
+  main#main-content
+
+  footer#site-footer
