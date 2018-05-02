@@ -1,0 +1,22 @@
+// Hide an element in a way which still allows screen readers to read it.
+@mixin adaHide() {
+  position: absolute !important;
+  left: -99999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+// Tablet Media Query
+@mixin tablet {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+// Desktop Media Query
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}

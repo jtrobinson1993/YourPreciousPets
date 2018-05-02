@@ -1,0 +1,123 @@
+@import 'config/base-import';
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: $font-body;
+  font-size: 100%;
+  color: $color-dark-grey;
+  transition: font-size $anim-speed ease;
+  line-height: 1.4;
+  &.small {
+    font-size: 87.5%;
+  }
+  &.large {
+    font-size: 1.125%;
+  }
+}
+
+.btn {
+  display: block;
+  width: 160px;
+  margin: 0 auto;
+  padding: 10px;
+  background: $color-brand-main;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.125rem;
+  margin-top: 30px;
+  border: 1px solid darken($color-brand-main, 10%);
+  @include tablet() {
+    width: 180px;
+    margin-top: 45px;
+    padding: 12px;
+  }
+  @include desktop() {
+    width: 220px;
+    margin-top: 60px;
+    padding: 15px;
+    font-size: 1.25rem;
+  }
+}
+
+h2 {
+  font-family: $font-heading;
+  font-size: $font-32;
+  margin: 0 0 15px;
+  line-height: 1.2;
+  @include desktop() {
+    margin: 0 0 30px;
+    font-size: $font-48;
+  }
+}
+
+p {
+  margin: 0;
+  font-size: $font-16;
+  @include desktop() {
+    font-size: $font-18;
+  }
+  + p {
+    margin: 7.5px 0 0;
+    @include desktop() {
+      margin: 15px 0;
+    }
+  }
+}
+
+/* Sticky Footer start */
+
+#pageWrapper {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+#site-header, #main-content, #site-footer {
+  display: table-row;
+}
+
+#site-header, #site-footer {
+  height: 1px;
+}
+
+/* Sticky Footer End */
+
+a {
+  // Minimum 7:1 contrast w/ background for AAA ADA compliance
+  color: $link-color;
+  // Underline for ADA compliance
+  text-decoration: underline;
+}
+
+@import 'partials/header';
+
+.content-constraint {
+  padding: 30px;
+  max-width: 1040px;
+  margin: 0 auto;
+  @include tablet() {
+    padding: 45px;
+  }
+  @include desktop() {
+    padding: 60px;
+  }
+}
+
+.content-area {
+  &:nth-of-type(odd) {
+    background: lighten($color-brand-tertiary, 25%);
+  }
+  &:nth-of-type(even) {
+    background: lighten($color-brand-secondary, 25%);
+  }
+}

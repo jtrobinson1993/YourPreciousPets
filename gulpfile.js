@@ -9,7 +9,6 @@ const minifyHTML = require('gulp-cleanhtml');
 const wrap = require('gulp-wrap');
 const extReplace = require('gulp-ext-replace');
 const autoPrefixer = require('gulp-autoprefixer');
-const concat = require('gulp-concat');
 
 gulp.task('default', ['sass', 'js', 'html']);
 
@@ -27,8 +26,7 @@ gulp.task('sass', () => {
       })
     )
     .pipe(minifyCSS())
-    .pipe(concat('styles.css'))
-    .pipe(gulp.dest('./web/build/styles'));
+    .pipe(gulp.dest('./web/build'));
 });
 
 gulp.task('js', () => {
@@ -40,8 +38,7 @@ gulp.task('js', () => {
       })
     )
     .pipe(minifyJS())
-    .pipe(concat('app.js'))
-    .pipe(gulp.dest('./web/build/js'));
+    .pipe(gulp.dest('./web/build'));
 });
 
 gulp.task('html', () => {

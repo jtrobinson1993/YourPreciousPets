@@ -1,0 +1,45 @@
+
+/* Colors */
+
+// Brand Colors
+$color-brand-main: #88338e;
+$color-brand-secondary: #94DD4E;
+$color-brand-tertiary: #F6E657;
+
+// Shades of Grey
+$color-black: #000;
+$color-dark-grey: #222;
+$color-grey: #aaa;
+$color-light-grey: #ddd;
+$color-off-white: #f7f7f7;
+$color-white: #fff;
+
+// Element Colors
+// Darkened for AAA ADA compliance
+$link-color: $color-brand-main;
+
+/* Fonts */
+$font-sans-serif: Helvetica, Arial, sans-serif;
+$font-logo: 'Dancing Script', $font-sans-serif;
+$font-body: 'Varela Round', $font-sans-serif;
+$font-heading: 'Indie Flower', $font-sans-serif;
+
+$font-14: .875rem;
+$font-16: 1rem;
+$font-18: 1.125rem;
+$font-20: 1.25rem;
+$font-24: 1.5rem;
+$font-28: 1.75rem;
+$font-32: 2rem;
+$font-40: 2.5rem;
+$font-48: 3rem;
+$font-64: 4rem;
+
+/* Miscellaneous */
+
+// Global Animation Speed
+$anim-speed: .3s;
+
+// Layout
+$tablet: 767px;
+$desktop: 1080px

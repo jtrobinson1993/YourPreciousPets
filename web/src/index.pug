@@ -3,31 +3,58 @@ doctype html
 
 head
   meta(name='robots' content='noindex')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
   title Home | Your Precious Pets
-  link(href='https://fonts.googleapis.com/css?family=Indie+Flower|Varela+Round' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css?family=Dancing+Script|Indie+Flower|Varela+Round' rel='stylesheet')
+  link(href='stylesheets/main.css' rel='stylesheet')
 
 body
 
-  a(href='#maincontent') Skip to main content
-  header#site-header
+  div#pageWrapper
 
-    h1
-      <cms:editable name='site_heading' type='text'>Your Precious Pets</cms:editable>
+    header#site-header
+      .content-constraint
+        a#skip-link(href='#maincontent') Skip to main content
 
-    button#main-menu-toggle
-      - for (var i = 0; i < 3; i++)
-        span.menu-bar(aria-hidden)
-      span.menu-toggle-text Open Main Menu
+        h1 <cms:editable name='site_heading' type='text'>Your Precious Pets</cms:editable>
 
-    nav
-      ul
-        li
-          a(href='/new_site') Home
-        li
-          a(href='/new_site/grooming.php') Grooming
-        li
-          a(href='/new_site/boarding.php') Boarding
-          
-  main#main-content
+        button#main-menu-toggle
+          - for (var i = 0; i < 3; i++)
+            span.menu-bar(aria-hidden)
+          span.menu-toggle-text Open Main Menu
 
-  footer#site-footer
+        nav#main-menu
+          ul
+            li
+              a(href='/new_site') Home
+            li
+              a(href='/new_site/grooming.php') Grooming
+            li
+              a(href='/new_site/boarding.php') Boarding
+            li
+              a(href='/new_site/spa.php') Spa
+            li
+              a(href='/new_site/contact.php') Contact Us
+
+    main#main-content
+      <cms:repeatable name="content_areas">
+        <cms:editable name='area_title' type='text' label='Title' />
+        <cms:editable name='area_content' type='nicedit' label='Content' />
+        <cms:editable name='area_link' type='text' label='Link' />
+        <cms:editable name='area_link_text' type='text' label='Link Text' />
+      </cms:repeatable>
+      <cms:show_repeatable 'content_areas'>
+        .content-area
+          .content-constraint
+            h2 <cms:show area_title />
+            p <cms:show area_content />
+            <cms:if area_link>
+              <a class="btn" href="<cms:show area_link />"><cms:show area_link_text /></a>
+            <cms:else />
+              <cms:hide>
+                <a class="btn" href="<cms:show area_link />"><cms:show area_link_text /></a>
+              </cms:hide>
+            </cms:if>
+      </cms:show_repeatable>
+    footer#site-footer
+      .content-constraint
